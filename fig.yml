@@ -1,0 +1,14 @@
+web:
+  image: dockerfile/nodejs
+  command: node server.js
+  volumes:
+    - ./:/data
+  ports:
+    - "8080:8080"
+  links:
+    - mongo
+
+mongo:
+  image: dockerfile/mongodb
+  ports:
+    - "27017:27017"
